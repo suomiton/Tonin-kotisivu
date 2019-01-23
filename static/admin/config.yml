@@ -23,3 +23,10 @@ collections:
           - { label: "Template Key", name: "templateKey", widget: "hidden", default: "top-list" }
           - { label: Title, name: title, widget: string }
           - { label: Contents, name: contents, widget: markdown }
+      - file: "src/pages/guestbook/index.md"
+        label: "Guestbook"
+        name: "guestbook"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "guestbook" }
+          - { label: Title, name: title, widget: string }
+          - { label: Contents, name: contents, widget: markdown }

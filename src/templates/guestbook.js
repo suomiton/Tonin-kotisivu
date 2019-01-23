@@ -2,22 +2,22 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 
-export const TopListTemplate = ({ title }) => <div>TOPPEN!</div>;
+export const GuestbookTemplate = ({ title }) => <div>Guestbook!</div>;
 
-const TopListPage = ({ data }) => {
+const GuestbookPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
-      <TopListTemplate title={frontmatter.title} />
+      <GuestbookTemplate title={frontmatter.title} />
     </Layout>
   );
 };
 
-export default TopListPage;
+export default GuestbookPage;
 
-export const topListQuery = graphql`
-  query TopListPage($id: String!) {
+export const guestbookQuery = graphql`
+  query GuestbookPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
