@@ -13,20 +13,23 @@ collections:
         label: "About"
         name: "about"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page" }
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
-      - file: "src/pages/toplist/index.md"
-        label: "Top list"
-        name: "toplist"
-        fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "top-list" }
-          - { label: Title, name: title, widget: string }
-          - { label: Contents, name: contents, widget: markdown }
       - file: "src/pages/guestbook/index.md"
         label: "Guestbook"
         name: "guestbook"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "guestbook" }
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "guestbook",
+            }
           - { label: Title, name: title, widget: string }
           - { label: Contents, name: contents, widget: markdown }

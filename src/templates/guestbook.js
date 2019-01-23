@@ -21,6 +21,7 @@ export const guestbookQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
+        contents
       }
     }
   }

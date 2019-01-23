@@ -10,6 +10,7 @@ const GlobalStyles = css`
     font-size: 16px;
     font-weight: 400;
     background-color: ${props => props.theme.colors.primary};
+    color: #fff;
   }
 
   h1 {

@@ -25,10 +25,12 @@ const Navbar = class extends React.Component {
             <Link to="/about">About</Link>
           </NavLink>
           <NavLink>
-            <Link to="/top-list">Top 5 Arnold Schartsenegger leffat</Link>
+            <Link to="/about/top-5-arnold-movies">
+              Top 5 Arnold Schartsenegger leffat
+            </Link>
           </NavLink>
           <NavLink>
-            <Link to="/top-list">Hyviä linkkejä</Link>
+            <Link to="/about/links-to-cool-sites">Awesome links</Link>
           </NavLink>
         </NavList>
       </NavWrapper>
