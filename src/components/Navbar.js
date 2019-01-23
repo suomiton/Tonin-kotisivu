@@ -37,5 +37,3 @@ const Navbar = class extends React.Component {
 };
 
 export default Navbar;
-
-// API Oauth dc37f0c92b4d1610cf33827e6a16fb140b2c721da9296f8f6f3ccb7bef3aee2f
