@@ -63,12 +63,16 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 };
 
-exports.sourceNodes = async ({ actions }) => {
+exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest
+}) => {
   const { createNode } = actions;
 
   const fetchFormSubmissions = () =>
     axios.get(
-      `https://api.netlify.com/api/v1/forms/5c4703206451bf0008ce517d/submissions`,
+      `https://api.netlify.com/api/v1/forms/5c499a70839c35000803e0c3/submissions`,
       {
         headers: { Authorization: `Bearer ${process.env.NETLIFY_API_TOKEN}` }
       }
@@ -76,35 +80,25 @@ exports.sourceNodes = async ({ actions }) => {
 
   const res = await fetchFormSubmissions();
 
-  res.data.map((submission, i) => {
-    // Create your node object
-    const submissionNode = {
-      // Required fields
-      id: `${i}`,
-      parent: `__SOURCE__`,
-      internal: {
-        type: `Submission` // name of the graphQL query --> allRandomUser {}
-        // contentDigest will be added just after
-        // but it is required
-      },
-      children: [],
+  // Create your node object
+  const submissionNode = {
+    // Required fields
+    id: createNodeId(`${1000}`),
+    parent: `__SOURCE__`,
+    internal: {
+      type: `submission`, // name of the graphQL query --> allSubmission {}
+      contentDigest: createContentDigest(res.data)
+    },
+    children: []
+  };
 
-      // Other fields that you want to query with graphQl
+  res.data.map(submission => {
+    submissionNode.children.push({
       name: submission.name,
       body: submission.body
-    };
-
-    // Get content digest of node. (Required field)
-    const contentDigest = crypto
-      .createHash(`md5`)
-      .update(JSON.stringify(submissionNode))
-      .digest(`hex`);
-
-    submissionNode.internal.contentDigest = contentDigest;
-
-    // Create node with the gatsby createNode() API
-    createNode(submissionNode);
+    });
   });
 
-  return;
+  // Create node with the gatsby createNode() API
+  createNode(submissionNode);
 };

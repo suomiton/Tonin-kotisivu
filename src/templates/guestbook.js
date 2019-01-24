@@ -40,7 +40,7 @@ export const GuestbookTemplate = ({
       <h1>{title}</h1>
       <PageContent className="content" content={content} />
       <GuestbookWrapper>
-        {entries.map((e, i) => renderEntry(e.node, i))}
+        {/* {entries.map((e, i) => renderEntry(e.node, i))} */}
         <hr />
         <GuestbookForm />
       </GuestbookWrapper>
@@ -50,17 +50,16 @@ export const GuestbookTemplate = ({
 
 const GuestbookPage = ({ data }) => {
   const {
-    markdownRemark: post,
-    allSubmission: { edges }
+    markdownRemark: post
+    // allSubmission: { edges }
   } = data;
-  console.log(edges);
   return (
     <Layout>
       <GuestbookTemplate
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
         content={post.html}
-        entries={edges}
+        // entries={edges}
       />
     </Layout>
   );
@@ -74,14 +73,6 @@ export const guestbookQuery = graphql`
       html
       frontmatter {
         title
-      }
-    }
-    allSubmission {
-      edges {
-        node {
-          name
-          body
-        }
       }
     }
   }
