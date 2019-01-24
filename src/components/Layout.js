@@ -11,6 +11,33 @@ const BaseStyles = createGlobalStyle`
   ${GlobalStyles}
 `;
 
+const SiteTitleWrapper = styled.div`
+  width: 100%;
+  height: 100px;
+  position: relative;
+  > div {
+    font-size: 64px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+`;
+
+const SiteTitleShadow = styled.div`
+  text-shadow: 0 0 15px red;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: red;
+`;
+
+const SiteTitle = styled.div`
+  background: -webkit-linear-gradient(orange, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+
 const MainWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
@@ -25,6 +52,13 @@ const LeftBar = styled.div`
 
 const ContentWrapper = styled.div`
   flex: 1 1 100%;
+`;
+
+const PeekABoo = styled.img`
+  position: fixed;
+  bottom: 0;
+  left: 30px;
+  max-width: 200px;
 `;
 
 const TemplateWrapper = ({ children }) => (
@@ -85,8 +119,15 @@ const TemplateWrapper = ({ children }) => (
             <LeftBar>
               <Navbar />
             </LeftBar>
-            <ContentWrapper>{children}</ContentWrapper>
+            <ContentWrapper>
+              <SiteTitleWrapper>
+                <SiteTitleShadow>Tonys Website</SiteTitleShadow>
+                <SiteTitle>Tonys Website</SiteTitle>
+              </SiteTitleWrapper>
+              {children}
+            </ContentWrapper>
           </MainWrapper>
+          <PeekABoo src="https://media.giphy.com/media/xUA7bilHUjHmAwGGOc/giphy.gif" />
         </div>
       )}
     />

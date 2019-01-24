@@ -36,6 +36,14 @@ export default class IndexPage extends React.Component {
             src="https://media.giphy.com/media/xFpTbJGYBgHHQchgrm/giphy.gif"
             alt=""
           />
+          <img
+            src="https://media.giphy.com/media/5X7GDf7zc1Ebu/giphy.gif"
+            alt=""
+          />
+          <img
+            src="https://media.giphy.com/media/7ELa4AJSFpWqrR4wit/giphy.gif"
+            alt=""
+          />
         </DankestGifs>
       </Layout>
     );

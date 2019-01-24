@@ -80,25 +80,20 @@ exports.sourceNodes = async ({
 
   const res = await fetchFormSubmissions();
 
-  // Create your node object
-  const submissionNode = {
-    // Required fields
-    id: createNodeId(`${1000}`),
-    parent: `__SOURCE__`,
-    internal: {
-      type: `submission`, // name of the graphQL query --> allSubmission {}
-      contentDigest: createContentDigest(res.data)
-    },
-    children: []
-  };
+  res.data.map((submission, i) => {
+    const submissionNode = {
+      id: createNodeId(`${i}`),
+      parent: `__SOURCE__`,
+      internal: {
+        type: `submission`, // name of the graphQL query --> allSubmission {}
+        contentDigest: createContentDigest(submission)
+      },
+      children: [],
 
-  res.data.map(submission => {
-    submissionNode.children.push({
       name: submission.name,
       body: submission.body
-    });
-  });
+    };
 
-  // Create node with the gatsby createNode() API
-  createNode(submissionNode);
+    createNode(submissionNode);
+  });
 };

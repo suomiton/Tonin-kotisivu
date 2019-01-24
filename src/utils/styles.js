@@ -9,7 +9,7 @@ const GlobalStyles = css`
     font-family: ${props => props.theme.fonts.primary};
     font-size: 16px;
     font-weight: 400;
-    color: #fff;
+    color: green;
     background: url("/img/heic0611b.jpg") repeat top left
       ${props => props.theme.colors.primary};
   }
