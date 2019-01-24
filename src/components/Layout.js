@@ -20,6 +20,7 @@ const MainWrapper = styled.div`
 
 const LeftBar = styled.div`
   flex: 0 0 300px;
+  align-self: center;
 `;
 
 const ContentWrapper = styled.div`

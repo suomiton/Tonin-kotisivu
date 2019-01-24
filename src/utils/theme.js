@@ -3,7 +3,7 @@ const Theme = {
     primary: "#000"
   },
   fonts: {
-    primary: "comic-sans"
+    primary: "Comic Sans MS, cursive, sans-serif"
   }
 };
 

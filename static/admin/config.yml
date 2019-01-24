@@ -32,4 +32,4 @@ collections:
               default: "guestbook",
             }
           - { label: Title, name: title, widget: string }
-          - { label: Contents, name: contents, widget: markdown }
+          - { label: "Body", name: "body", widget: "markdown" }

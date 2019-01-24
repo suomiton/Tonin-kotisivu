@@ -14,6 +14,7 @@ const NavList = styled.ul`
 
 const NavLink = styled.li`
   font-weight: bold;
+  margin-bottom: 15px;
 `;
 
 const Navbar = class extends React.Component {
@@ -22,7 +23,13 @@ const Navbar = class extends React.Component {
       <NavWrapper>
         <NavList>
           <NavLink>
+            <Link to="/">Home</Link>
+          </NavLink>
+          <NavLink>
             <Link to="/about">About</Link>
+          </NavLink>
+          <NavLink>
+            <Link to="/guestbook">Guestbook</Link>
           </NavLink>
           <NavLink>
             <Link to="/about/top-5-arnold-movies">

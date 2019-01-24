@@ -9,14 +9,16 @@ const GlobalStyles = css`
     font-family: ${props => props.theme.fonts.primary};
     font-size: 16px;
     font-weight: 400;
-    background-color: ${props => props.theme.colors.primary};
     color: #fff;
+    background: url("/img/heic0611b.jpg") repeat top left
+      ${props => props.theme.colors.primary};
   }
 
   h1 {
     font-size: 48px;
     line-height: 32px;
     font-weight: bold;
+    text-align: center;
   }
 
   h2 {
