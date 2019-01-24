@@ -66,7 +66,9 @@ exports.sourceNodes = async ({ actions }) => {
   const { createNode } = actions;
 
   const fetchFormSubmissions = () =>
-    axios.get(`https://api.netlify.com/api/v1/forms/{form_id}/submissions`);
+    axios.get(`https://api.netlify.com/api/v1/forms/{form_id}/submissions`, {
+      headers: { Authorization: `Bearer ${process.env.NETLIFY_API_TOKEN}` }
+    });
 
   const res = await fetchFormSubmissions();
 
